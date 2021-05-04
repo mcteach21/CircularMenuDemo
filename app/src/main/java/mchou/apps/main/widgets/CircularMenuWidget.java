@@ -1,6 +1,7 @@
 package mchou.apps.main.widgets;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -63,14 +64,15 @@ public class CircularMenuWidget extends View {
 		InitMenu();
 	}
 	private void InitMenu() {
+		Resources res = context.getResources();
 		colors=new int[] {
-				context.getResources().getColor(R.color.whitesmoke)
-				, context.getResources().getColor(R.color.bisque)
-				, context.getResources().getColor(R.color.maroon)
-				, context.getResources().getColor(R.color.darkturquoise)
-				, context.getResources().getColor(R.color.sandybrown)
-				, context.getResources().getColor(R.color.indianred)
-				, context.getResources().getColor(R.color.cadetblue)
+				res.getColor(R.color.transparent, null)
+				, res.getColor(R.color.bisque, null)
+				, res.getColor(R.color.maroon, null)
+				, res.getColor(R.color.darkturquoise, null)
+				, res.getColor(R.color.sandybrown, null)
+				, res.getColor(R.color.indianred, null)
+				, res.getColor(R.color.cadetblue, null)
 		};
 
 		menuAnimation = new DrawAnimation(this,true);
@@ -159,7 +161,8 @@ public class CircularMenuWidget extends View {
 				x = (int)(getWidth()/2 + radius * Math.cos(angleRadian));
 				y = (int)(getHeight()/2 + radius * Math.sin(angleRadian));
 
-				canvas.drawBitmap(bitmap, (x-radius/3) + 50 , y - 50 , paint);
+//				canvas.drawBitmap(bitmap, (x-radius/3) + 50 , y - 50 , paint);
+				canvas.drawBitmap(bitmap, x- radius/4, y - radius/5 , paint);
 			}
 		}
 	}
